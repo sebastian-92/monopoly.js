@@ -3,13 +3,19 @@ var chances = [8, 23, 37];
 var chests = [3, 18, 34];
 var rails = [5, 25, 35];
 var utils = [12, 28];
+var deckdef=Array.from(Array(16).keys());
+var codeck=deckdef.slice();
+var chdeck=deckdef.slice();
 var pos = 0;
 var jail = 0;
 var jailtry = 0;
 var dc = 0;
 var isd;
 function pickChance() {
-  const picked = Math.floor(Math.random() * 16) + 1;
+  if (chdeck.length==0) {
+     chdeck=deckdef.slice();
+  }
+  const picked = chdeck.splice(Math.floor(Math.random() * chdeck.length),1)
   switch (picked) {
     case 1:
       pos = 0;
@@ -61,7 +67,10 @@ function pickChance() {
   }
 }
 function pickChest() {
-  const picked = Math.floor(Math.random() * 16) + 1;
+    if (codeck.length==0) {
+      codeck=deckdef.slice();
+  }
+  const picked = codeck.splice(Math.floor(Math.random() * codeck.length),1)
   switch (picked) {
     case 1: //GO
       pos = 0;

@@ -64,6 +64,11 @@ function pickChance() {
       pos = 5;
       spaces[pos]++;
       break;
+    case 9:
+      pos = 10;
+      jail = 1;
+      spaces[pos]++;
+      break;
   }
 }
 function pickChest() {
